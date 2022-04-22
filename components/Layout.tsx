@@ -1,6 +1,7 @@
 import {
   AppShell,
   Burger,
+  Footer,
   Header,
   Image,
   MediaQuery,
@@ -21,13 +22,14 @@ const CustomAppShell = ({ children }: Props) => {
     <AppShell
       padding='md'
       header={
-        <Header height={80} p='md'>
+        <Header height={70} p='xs'>
           <div
             style={{ display: "flex", alignItems: "center", height: "100%" }}>
             <Image width={80} height={80} src='nesdc-logo.png' />
             <Text weight={700}>
-              Office of the National Economic and Social Development Council
+              Self-Checklist หลักเกณฑ์การประเมินข้อเสนอโครงการสำคัญ
             </Text>
+
             <MediaQuery largerThan='sm' styles={{ display: "none" }}>
               <Burger
                 opened={opened}
@@ -39,6 +41,20 @@ const CustomAppShell = ({ children }: Props) => {
             </MediaQuery>
           </div>
         </Header>
+      }
+      footer={
+        <Footer height={40} p="xs">
+          <div
+            style={{ display: "flex", alignItems: "center", height: "100%" }}>
+            <Image width={20} height={20} src='nesdc-logo.png' />
+            <Text size="xs" weight={5}>
+              สำนักงานสภาพัฒนาการเศรษฐกิจและสังคมแห่งชาติ
+              <Text size="xs" weight={5}>
+                Office of the National Economic and Social Development Council
+              </Text>
+            </Text>
+          </div>
+        </Footer>
       }
       styles={(theme) => ({
         main: {
