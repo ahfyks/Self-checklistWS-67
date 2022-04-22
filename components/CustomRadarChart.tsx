@@ -24,10 +24,10 @@ type Props = {
 };
 
 const setChartData = (data: number[]) => ({
-  labels: ["A", "B", "C", "D", "E", "F"],
+  labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
   datasets: [
     {
-      label: "My Values",
+      label: "คะแนน",
       data: data,
       fill: true,
       backgroundColor: "rgba(255, 99, 132, 0.2)",
@@ -36,18 +36,7 @@ const setChartData = (data: number[]) => ({
       pointBorderColor: "#fff",
       pointHoverBackgroundColor: "#fff",
       pointHoverBorderColor: "rgb(255, 99, 132)",
-    },
-    {
-      label: "Demo Values",
-      data: [72, 68, 25, 55, 34, 99],
-      fill: true,
-      backgroundColor: "rgba(54, 162, 235, 0.2)",
-      borderColor: "rgb(54, 162, 235)",
-      pointBackgroundColor: "rgb(54, 162, 235)",
-      pointBorderColor: "#fff",
-      pointHoverBackgroundColor: "#fff",
-      pointHoverBorderColor: "rgb(54, 162, 235)",
-    },
+    }
   ],
 });
 const options = {
@@ -59,7 +48,11 @@ const options = {
   scales: {
     r: {
       suggestedMin: 0,
-      suggestedMax: 100,
+      suggestedMax: 5,
+      ticks: {
+        stepSize: 1
+      }
+
     },
   },
 };
