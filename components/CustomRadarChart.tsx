@@ -72,7 +72,7 @@ const options = {
     tooltip: {
       enabled: true,
       callbacks: {
-        label: function (datasets: any) {
+        label: function (datasets: { label: string; }) {
           const datasetsLabel = [
             'โครงการที่ส่งผลต่อปัจจัยหลักภายใต้ห่วงโซ่คุณค่าของเป้าหมายแผนแม่บทย่อยที่เลือกมา(ตามข้อเท็จจริง) และสามารถส่งผลต่อการบรรลุเป้าหมายแผนแม่บทและยุทธศาสตร์ชาติ(XYZ)',
             'โครงการเป็นการจัดตั้งกองทุนฯ/หน่วยงาน/คณะกรรมการต่างๆ',
