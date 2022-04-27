@@ -21,13 +21,13 @@ const DataPointForm = ({ handleFormSubmit }: Props) => {
     },
     validate: {
       a: (value) => ((value) == 1 || (value) == 0 ? null : 'ระบุได้เฉพาะเลข 1 หรือ 0'),
-      b: (value) => ((value) == 1 || (value) == 0 ? null : 'ระบุได้เฉพาะเลข 1 หรือ 0'),
+      b: (value) => ((value) >= 0 && value <= 5 ? null : 'ระบุได้เฉพาะเลข 0 ถึง 5'),
       c: (value) => ((value) >= 0 && value <= 5 ? null : 'ระบุได้เฉพาะเลข 0 ถึง 5'),
       d: (value) => ((value) >= 0 && value <= 5 ? null : 'ระบุได้เฉพาะเลข 0 ถึง 5'),
       e: (value) => ((value) >= 0 && value <= 5 ? null : 'ระบุได้เฉพาะเลข 0 ถึง 5'),
       f: (value) => ((value) >= 0 && value <= 5 ? null : 'ระบุได้เฉพาะเลข 0 ถึง 5'),
       g: (value) => ((value) >= 0 && value <= 5 ? null : 'ระบุได้เฉพาะเลข 0 ถึง 5'),
-      h: (value) => ((value) == 1 || (value) == 0 ? null : 'ระบุได้เฉพาะเลข 1 หรือ 0'),
+      h: (value) => ((value) >= 0 && value <= 5 ? null : 'ระบุได้เฉพาะเลข 0 ถึง 5'),
     }
   });
 
@@ -35,7 +35,7 @@ const DataPointForm = ({ handleFormSubmit }: Props) => {
     <form onSubmit={form.onSubmit(handleFormSubmit)}>
       <TextInput
         required
-        label='1 โครงการที่ส่งผลต่อปัจจัยหลักภายใต้ห่วงโซ่คุณค่าของเป้าหมายแผนแม่บทย่อยที่เลือกมา(ตามข้อเท็จจริง) และสามารถส่งผลต่อการบรรลุเป้าหมายแผนแม่บทและยุทธศาสตร์ชาติ(XYZ)'
+        label='1 โครงการที่ส่งผลต่อปัจจัยหลักภายใต้ห่วงโซ่คุณค่าของเป้าหมายแผนแม่บทย่อยที่เลือกมา(ตามข้อเท็จจริง) และสามารถส่งผลต่อการบรรลุเป้าหมายแผนแม่บทและยุทธศาสตร์ชาติ(XYZ) (ระบุได้เฉพาะเลข 1 หรือ 0)'
         placeholder='0'
         {...form.getInputProps("a")}
       />
