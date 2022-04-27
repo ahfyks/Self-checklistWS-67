@@ -10,7 +10,6 @@ import {
   Legend,
   Interaction,
 } from "chart.js";
-import { Point } from "tabler-icons-react";
 
 ChartJS.register(
   RadialLinearScale,
