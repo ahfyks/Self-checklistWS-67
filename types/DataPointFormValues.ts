@@ -5,6 +5,7 @@ type DataPointFormValues = {
   d: number;
   e: number;
   f: number;
+  g: number;
 };
 
 export default DataPointFormValues;
