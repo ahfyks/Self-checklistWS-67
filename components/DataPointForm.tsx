@@ -1,4 +1,4 @@
-import { Box, TextInput, Group, Button } from "@mantine/core";
+import { Box, TextInput, Group, Button, Select } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
 import DataPointFormValues from "../types/DataPointFormValues";
@@ -17,7 +17,6 @@ const DataPointForm = ({ handleFormSubmit }: Props) => {
       e: 0,
       f: 0,
       g: 0,
-      h: 0,
     },
     validate: {
       a: (value) => ((value) == 1 || (value) == 0 ? null : 'ระบุได้เฉพาะเลข 1 หรือ 0'),
@@ -27,59 +26,118 @@ const DataPointForm = ({ handleFormSubmit }: Props) => {
       e: (value) => ((value) >= 0 && value <= 5 ? null : 'ระบุได้เฉพาะเลข 0 ถึง 5'),
       f: (value) => ((value) >= 0 && value <= 5 ? null : 'ระบุได้เฉพาะเลข 0 ถึง 5'),
       g: (value) => ((value) >= 0 && value <= 5 ? null : 'ระบุได้เฉพาะเลข 0 ถึง 5'),
-      h: (value) => ((value) >= 0 && value <= 5 ? null : 'ระบุได้เฉพาะเลข 0 ถึง 5'),
     }
   });
 
   return (
     <form onSubmit={form.onSubmit(handleFormSubmit)}>
-      <TextInput
+      <Select
         required
-        label='1 โครงการที่ส่งผลต่อปัจจัยหลักภายใต้ห่วงโซ่คุณค่าของเป้าหมายแผนแม่บทย่อยที่เลือกมา(ตามข้อเท็จจริง) และสามารถส่งผลต่อการบรรลุเป้าหมายแผนแม่บทและยุทธศาสตร์ชาติ(XYZ) (ระบุได้เฉพาะเลข 1 หรือ 0)'
-        placeholder='0'
+        label='1. โครงการส่งผลต่อปัจจัยหลักภายใต้ห่วงโซ่คุณค่า ของเป้าหมายแผนแม่บทย่อย (Y1) ที่เลือกมา (ตามข้อเท็จจริง) และสามารถส่งผลต่อการบรรลุเป้าหมายแผนแม่บทและยุทธศาสตร์ชาติ ตามหลักการ XYZ (ระบุได้เฉพาะเลข 1 หรือ 0)'
+        placeholder='โปรดเลือกคะแนน'
+        searchable
+        nothingFound = 'โปรดระบุคะแนน 0-1'
+        data = {[
+          '0',
+          '1',
+        ]}
         {...form.getInputProps("a")}
       />
-      <TextInput
+      <Select
         required
-        label='2 โครงการเป็นการจัดตั้งกองทุนฯ/หน่วยงาน/คณะกรรมการต่างๆ'
-        placeholder='0'
+        label='2.ความจำเป็นต้องมีหรือไม่มีโครงการนี้'
+        placeholder='โปรดเลือกคะแนน'
+        searchable
+        nothingFound = 'โปรดระบุคะแนน 0-5'
+        data = {[
+          '0',
+          '1',
+          '2',
+          '3',
+          '4',
+          '5',
+        ]}
         {...form.getInputProps("b")}
       />
-      <TextInput
+      <Select
         required
-        label='3 ความจำเป็นต้องมีหรือไม่มีโครงการนี้'
-        placeholder='0'
+        label='3. โครงการเป็นการจัดทำจากข้อมูล เชิงประจักษ์ เช่น มีข้อมูลสถิติ/งานวิจัยรองรับ (ไม่ใช่การกล่าวอ้าง)'
+        placeholder='โปรดเลือกคะแนน'
+        searchable
+        nothingFound = 'โปรดระบุคะแนน 0-5'
+        data = {[
+          '0',
+          '1',
+          '2',
+          '3',
+          '4',
+          '5',
+        ]}
         {...form.getInputProps("c")}
       />
-      <TextInput
+      <Select
         required
-        label='4 โครงการเป็นการจัดทำจากข้อมูลเชิงประจักษ์ เช่น มีข้อมูลสถิติ/ข้อเท็จจริงรองรับ'
-        placeholder='0'
+        label='4. โครงการมีวัตถุประสงค์ ผลผลิต ผลลัพธ์ และกลุ่มเป้าหมายผู้รับประโยชน์ที่ชัดเจน สามารถส่งผลต่อการบรรลุเป้าหมายของโครงการอย่างเป็นรูปธรรม'
+        placeholder='โปรดเลือกคะแนน'
+        searchable
+        nothingFound = 'โปรดระบุคะแนน 0-5'
+        data = {[
+          '0',
+          '1',
+          '2',
+          '3',
+          '4',
+          '5',
+        ]}
         {...form.getInputProps("d")}
       />
-      <TextInput
+      <Select
         required
-        label='5 โครงการมีวัตถุประสงค์ ผลผลิต ผลลัพธ์ และกลุ่มเป้าหมายผู้รับประโยชน์ชัดเจน สามารถส่งผลต่อการบรรลุเป้าหมายอย่างเป็นรูปธรรม'
-        placeholder='0'
+        label='5. โครงการมีแผนการดำเนินงานและกิจกรรม ที่ชัดเจน เป็นไปได้จริง และส่งผลโดยตรงต่อการบรรลุเป้าหมาย และวัตถุประสงค์ของโครงการอย่างแท้จริง'
+        placeholder='โปรดเลือกคะแนน'
+        searchable
+        nothingFound = 'โปรดระบุคะแนน 0-5'
+        data = {[
+          '0',
+          '1',
+          '2',
+          '3',
+          '4',
+          '5',
+        ]}
         {...form.getInputProps("e")}
       />
-      <TextInput
+      <Select
         required
-        label='6 โครงการมีแผนการดำเนินงานและกิจกรรมที่ชัดเจน เป็นไปได้จริง และส่งผลโดยตรงต่อการบรรลุเป้าหมายและวัตถุประสงค์ของโครงการอย่างแท้จริง'
-        placeholder='0'
+        label='6. โครงการมีตัวชี้วัดที่สามารถสะท้อนการบรรลุผลสัมฤทธิ์ตามเป้าหมายของโครงการ ได้อย่างเป็นรูปธรรม'
+        placeholder='โปรดเลือกคะแนน'
+        searchable
+        nothingFound = 'โปรดระบุคะแนน 0-5'
+        data = {[
+          '0',
+          '1',
+          '2',
+          '3',
+          '4',
+          '5',
+        ]}
         {...form.getInputProps("f")}
       />
-      <TextInput
+      <Select
         required
-        label='7 โครงการมีตัวชี้วัดที่สามารถสะท้อนการบรรลุผลสัมฤทธิ์ตามเป้าหมายได้อย่างเป็นรูปธรรม'
-        placeholder='0'
+        label='7. โครงการเป็นการปรับปรุงซ่อมแซม/ก่อสร้างอาคาร/จัดตั้งกองทุน/หน่วยงาน/คณะกรรมการต่าง ๆ หรือไม่ หากเป็นต้องส่งผลต่อการบรรลุเป้าหมายแผนแม่บทย่อย (Y1) ที่เกี่ยวข้องอย่างชัดเจน'
+        placeholder='โปรดเลือกคะแนน'
+        searchable
+        nothingFound = 'โปรดระบุคะแนน 0-5'
+        data = {[
+          '0',
+          '1',
+          '2',
+          '3',
+          '4',
+          '5',
+        ]}
         {...form.getInputProps("g")}
-      />
-      <TextInput
-        required
-        label='8 ในกรณีที่เป็นโครงการจัดซื้อครุภัณฑ์/ปรับปรุง/ซ่อมแซม/ก่อนสร้างอาคารสถานที่ของส่วนราชการต้องส่งผลต่อการบรรลุเป้าหมายแผนแม่บทย่อยที่เกี่ยวข้องอย่างชัดเจน'
-        placeholder='0'
-        {...form.getInputProps("h")}
       />
       <Group position='center' mt='md'>
         <Button type='submit'>แสดงผลคะแนน</Button>

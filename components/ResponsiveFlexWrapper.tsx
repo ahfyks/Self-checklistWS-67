@@ -10,6 +10,6 @@ export const ResponsiveFlexWrapper = ({ children }: Props) => {
   const theme = useMantineTheme();
   const matches = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
   return (
-    <>{matches ? <Stack>{children}</Stack> : <Group grow>{children}</Group>};</>
+    <>{matches ? <Stack>{children}</Stack> : <Group grow>{children}</Group>}</>
   );
 };
